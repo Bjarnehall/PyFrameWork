@@ -1,5 +1,5 @@
 from api import API
-
+from functions import greet_from_python
 app = API()
 
 # Makes is possible to render template
