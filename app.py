@@ -1,4 +1,4 @@
-from functions import greet_from_python
+from functions import greet_from_python, snake_menu
 from api import API
 
 app = API()
@@ -17,10 +17,15 @@ def home(request, response):
         template = file.read()
 
     greeting = greet_from_python()
+    nav_menu = snake_menu()
     
-    response.text = render_template(template, greet_from_python=greeting)
+    response.text = render_template(template, greet_from_python=greeting, snake_menu=nav_menu)
     response.content_type = "text/html"
 
-@app.route("/about")
+@app.route("/About")
 def about(request,response):
     response.text = "Hello from about!"
+
+@app.route("/Contact")
+def contact(request,response):
+    response.text = "Hello from contact!"
